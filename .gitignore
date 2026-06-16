@@ -3,24 +3,14 @@ data/
 __pycache__/
 *.py[cod]
 
-
 japanCarsvenv/
-
-
-
-
 
 .vscode/
 .idea/
 
-
-
-
 .DS_Store
 Thumbs.db
 
-
 *.log
 
-
-
+models/

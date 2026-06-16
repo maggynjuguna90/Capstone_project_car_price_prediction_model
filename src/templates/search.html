@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search & Compare Car</title>
+</head>
+
+<body>
+
+    <h1>Search & Compare a Car</h1>
+
+    <form action="/compare" method="POST">
+
+        <label>Make</label><br>
+        <input type="text" name="Make" required>
+
+        <br><br>
+
+        <label>Model</label><br>
+        <input type="text" name="Model_No_Year" required>
+
+        <br><br>
+
+        <label>Mileage (km)</label><br>
+        <input type="number" name="Mileage" required>
+
+        <br><br>
+
+        <label>Year</label><br>
+        <input type="number" name="Year" required>
+
+        <br><br>
+
+        <label>Engine Size (cc)</label><br>
+        <input type="number" name="Engine_size" required>
+
+        <br><br>
+
+        <label>Transmission</label><br>
+        <select name="Transmission_type">
+            <option value="AT">AT</option>
+            <option value="MT">MT</option>
+            <option value="CVT">CVT</option>
+        </select>
+
+        <br><br>
+
+        <label>Fuel Type</label><br>
+        <select name="Fuel_Type">
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+            <option value="electric">Electric</option>
+        </select>
+
+        <br><br>
+
+        <label>Body Type</label><br>
+        <select name="Body_Type">
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+            <option value="hatchback">Hatchback</option>
+            <option value="pickup">Pickup</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Compare</button>
+
+    </form>
+
+</body>
+
+</html>

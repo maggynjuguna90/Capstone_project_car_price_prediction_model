@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Comparison Results</title>
+</head>
+
+<body>
+
+<h1>Import Cost Comparison</h1>
+
+<h2>{{ car.Make }}</h2>
+
+<p>{{ car.Model_No_Year }}</p>
+
+<hr>
+
+<p>
+Japan Price (USD):
+{{ result.predicted_japan_price_usd }}
+</p>
+
+<p>
+Japan Price (KES):
+{{ result.predicted_japan_price_kes }}
+</p>
+
+<p>
+Shipping:
+{{ result.shipping_cost }}
+</p>
+
+<p>
+Taxes:
+{{ result.taxes }}
+</p>
+
+<p>
+Total Import Cost:
+{{ result.total_import_cost }}
+</p>
+
+<p>
+Kenya Market Price:
+{{ result.kenya_market_price }}
+</p>
+
+<p>
+Savings:
+{{ result.savings }}
+</p>
+
+<a href="/">
+    Back to Search
+</a>
+
+</body>
+</html>

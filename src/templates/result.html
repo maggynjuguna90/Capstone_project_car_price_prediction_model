@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Comparison Results</title>
+</head>
+
+<body>
+
+<h1>Comparison Results</h1>
+
+<h2>Import Cost Breakdown</h2>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>Predicted Price (USD)</th>
+        <td>${{ "{:,.0f}".format(result.predicted_japan_price_usd | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Predicted Price (KES)</th>
+        <td>KES {{ "{:,.0f}".format(result.predicted_japan_price_kes | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Shipping Cost</th>
+        <td>KES {{ "{:,.0f}".format(result.shipping_cost | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>CIF</th>
+        <td>KES {{ "{:,.0f}".format(result.cif | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>CRSP</th>
+        <td>KES {{ "{:,.0f}".format(result.crsp | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Customs Value</th>
+        <td>KES {{ "{:,.0f}".format(result.customs_value | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Import Duty</th>
+        <td>KES {{ "{:,.0f}".format(result.import_duty | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Excise Duty</th>
+        <td>KES {{ "{:,.0f}".format(result.excise_duty | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>VAT</th>
+        <td>KES {{ "{:,.0f}".format(result.vat | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>IDF</th>
+        <td>KES {{ "{:,.0f}".format(result.idf | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>RDL</th>
+        <td>KES {{ "{:,.0f}".format(result.rdl | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Total Taxes</th>
+        <td>KES {{ "{:,.0f}".format(result.taxes | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Total Import Cost</th>
+        <td><strong>KES {{ "{:,.0f}".format(result.total_import_cost | default(0)) }}</strong></td>
+    </tr>
+
+    <tr>
+        <th>Kenya Market Price</th>
+        <td>
+            KES {{ "{:,.0f}".format(result.kenya_market_price | default(0)) }}
+            {% if result.price_estimated %}
+                <small>(estimated)</small>
+            {% endif %}
+        </td>
+    </tr>
+
+    <tr>
+        <th>Savings</th>
+        <td>KES {{ "{:,.0f}".format(result.savings | default(0)) }}</td>
+    </tr>
+
+    <tr>
+        <th>Recommendation</th>
+        <td><strong>{{ result.recommendation }}</strong></td>
+    </tr>
+
+</table>
+
+<br>
+
+<a href="/search">
+    <button>Compare Another Car</button>
+</a>
+
+</body>
+</html>

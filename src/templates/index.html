@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Japan Car Import Comparison</title>
+</head>
+
+<body>
+
+    <h1>Japan Car Import Comparison Platform</h1>
+
+    <form action="/search">
+
+        <input
+            type="text"
+            name="Make"
+            placeholder="Search Toyota, Nissan..."
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h2>Available Cars</h2>
+
+    <table border="1">
+
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Mileage</th>
+            <th>Action</th>
+        </tr>
+
+        {% for car in cars %}
+
+        <tr>
+
+            <td>{{ car.Make }}</td>
+
+            <td>{{ car.Model_No_Year }}</td>
+
+            <td>{{ car.Year }}</td>
+
+            <td>{{ "{:,.0f}".format(car.Mileage) }}</td>
+
+            <td>
+
+                <form action="/compare" method="POST">
+
+                    <input
+                        type="hidden"
+                        name="Make"
+                        value="{{ car.Make }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Model_No_Year"
+                        value="{{ car.Model_No_Year }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Mileage"
+                        value="{{ car.Mileage }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Year"
+                        value="{{ car.Year }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Engine_size"
+                        value="{{ car.Engine_size }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Transmission_type"
+                        value="{{ car.Transmission_type }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Fuel_Type"
+                        value="{{ car.Fuel_Type | default('petrol') }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Body_Type"
+                        value="{{ car.Body_Type | default('sedan') }}"
+                    >
+
+                    <button type="submit">
+                        Compare
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

@@ -17,3 +17,27 @@ KRA import duty guidelines(CRSP-2025)
 
 ## HOW THE PROJECT WORKS 
 The user enters the car details(make,model,year,mileage ,engine-size).The Machine Learning model predicts the japan market price.System calculates shipping cost and import taxes then compares the total import cost versus the local cost.Outputs recommends whether to import or buy locally.
+
+
+Repository: https://github.com/maggynjuguna90/Capstone_project_car_price_prediction_model.git
+
+1. Clone the repository
+git clone https://github.com/maggynjuguna90/Capstone_project_car_price_prediction_model.git
+cd Capstone_project_car_price_prediction_model
+2. Create virtual environment
+python -m venv venv
+Activate it:
+
+Windows
+
+venv\Scripts\activate
+
+Mac/Linux
+
+source venv/bin/activate
+Run the application
+python app.py
+
+Open in browser:
+
+http://127.0.0.1:5000

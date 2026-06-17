@@ -1,7 +1,9 @@
 # PROJECT OVERVIEW 
 This is a project that helps Kenyan-buyers compare the cost of buying cars locally versus importing them from Japan.Machine learning is used to predict import cost  and it is combined with Kenyan market data(shipping cost ,taxes).It enables the user to make a clear decision before purchasing a vehicle.The project focuses on car models manufactured between the year 2018 upto date.
 
+
 ## OBJECTIVES 
+
 1. Predict japan car prices.
 2. Calculate the cost of importing cars to Kenya.
 3. Compare the import cost versus the local market prices.

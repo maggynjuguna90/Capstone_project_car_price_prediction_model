@@ -1,5 +1,4 @@
-
-
+.env
 __pycache__/
 *.py[cod]
 
@@ -13,4 +12,3 @@ Thumbs.db
 
 *.log
 
-models/

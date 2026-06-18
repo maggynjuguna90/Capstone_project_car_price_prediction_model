@@ -29,13 +29,13 @@ python -m venv venv
 Activate it:
 
 Windows
-
 venv\Scripts\activate
 
 Mac/Linux
-
 source venv/bin/activate
+
 Run the application
+
 python app.py
 
 Open in browser:

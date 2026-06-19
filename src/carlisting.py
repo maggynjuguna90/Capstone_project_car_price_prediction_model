@@ -1,19 +1,7 @@
-from sqlalchemy import create_engine, text
-from dotenv import load_dotenv
+from sqlalchemy import text
 import pandas as pd
-import os
 
-load_dotenv()
-
-DB_HOST = os.getenv("DB_HOST", "localhost")
-DB_PORT = os.getenv("DB_PORT", "5432")
-DB_NAME = os.getenv("DB_NAME")
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-
-engine = create_engine(
-    f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-)
+from db import engine
 
 
 def get_all_cars(limit=20):
@@ -26,16 +14,29 @@ def get_all_cars(limit=20):
     return pd.read_sql(query, engine, params={"limit": limit})
 
 
-def search_cars(make):
-    query = text("""
+def search_cars(query, limit=100):
+    """Search listings by make or model.
+
+    Matches the search term against both Make and Model_No_Year so a
+    query like "Toyota" or "Probox" both return results. An empty query
+    falls back to a sample of the listings.
+    """
+    term = (query or "").strip()
+
+    if not term:
+        return get_all_cars(limit=limit)
+
+    sql = text("""
         SELECT *
-        FROM japan_cars
-        WHERE "Make" ILIKE :make
-        LIMIT 100
+        FROM japan_cars_list
+        WHERE "Make" ILIKE :term
+           OR "Model_No_Year" ILIKE :term
+        ORDER BY "Year" DESC, "Mileage" ASC
+        LIMIT :limit
     """)
 
     return pd.read_sql(
-        query,
+        sql,
         engine,
-        params={"make": f"%{make}%"}
+        params={"term": f"%{term}%", "limit": limit}
     )
